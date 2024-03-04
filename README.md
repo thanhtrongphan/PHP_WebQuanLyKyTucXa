@@ -20,3 +20,26 @@
     <td></td>
   </tr>
 </table>
+<h1>Chức năng</h1>
+<h3>Sinh Viên</h3>
+<table>
+    <p>Đăng nhập</p>
+  <p>Xem nội quy</p>
+  <p>xem thông tin, đổi mật khẩu</p>
+ <p> đăng ký phòng (làm đơn gửi admin)</p>
+  <p>đăng ký chuyển phòng (làm đơn gửi admin)</p>
+  <p>xem tiền nợ ktx</p>
+
+</table>
+<h3>Admin</h3>
+<table>
+    <p>tạo xoá sửa tk sinh viên</p>
+<p>tạo xoá sửa tầng</p>
+<p>tạo xoá sửa phòng</p>
+<p>xác nhận đơn đăng ký phòng</p>
+<p>xác nhận đơn chuyển phòng</p>
+<p>lập phiếu phạt nội quy</p>
+<p>xem và xác nhận  thanh toán công nợ sinh viên</p>
+
+
+</table>
