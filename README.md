@@ -6,17 +6,17 @@
   </tr>
   <tr>
     <td>Phan Thanh Trọng</td>
-    <td>Nguyễn Hữu Hiếu</td>
-    <td>Trần Thái Thanh</td>
+    <td>2001180172</td>
+    <td></td>
   </tr>
   <tr>
-    <td>2001180172</td>
+    <td>Nguyễn Hữu Hiếu</td>
     <td>2001181115</td>
-    <td>2001216143</td>
+    <td></td>
   </tr>
 <tr>
-    <td></td>
-    <td></td>
+    <td>Trần Thái Thanh</td>
+    <td>2001216143</td>
     <td></td>
   </tr>
 </table>
