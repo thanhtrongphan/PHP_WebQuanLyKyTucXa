@@ -2,11 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\LognInController;
+use App\Http\Controllers\LognOutController;
+use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/getdata', [DataController::class, 'GetData']);
-// call view login.blade.php
-Route::get('/login', [DataController::class, 'login_form'])->name('login.form');
-Route::post('/login', [DataController::class, 'login'])->name('login');
-
+// group route login
+Route::group(['prefix' => 'login'], function () {
+    Route::get('/', [LognInController::class, 'login_form'])->name('login.form');
+    Route::post('/', [LognInController::class, 'login'])->name('login');
+});
+Route::get('/logout', [LognOutController::class, 'logout'])->name('LogOut');
+Route::resource('students', StudentController::class);

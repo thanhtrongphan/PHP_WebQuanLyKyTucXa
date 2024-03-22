@@ -9,18 +9,19 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Username</th>
+            <th>Password</th>
             <!-- Add mo`re columns as needed -->
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($data as $item): ?>
+        <p>Student Data</p>
         <tr>
-            <td><?= $item->id ?></td>
-            <td><?= $item->name ?></td>
+            <td>{{ $data->id }}</td>
+            <td>{{ $data->username }}</td>
+            <td>{{ $data->password }}</td>
             <!-- Add more columns as needed -->
         </tr>
-        <?php endforeach; ?>
     </tbody>
 </table>
 @endsection

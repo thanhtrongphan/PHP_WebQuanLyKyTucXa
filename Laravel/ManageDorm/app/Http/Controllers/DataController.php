@@ -14,15 +14,5 @@ class DataController extends Controller
             // Send data to view
             return view('showdata', ['data' => $data]);
         } 
-        public function login_form()
-        {
-            return view('login');
-        }
-        public function login(Request $request)
-        {
-            $username = $request->input('username');
-            $password = $request->input('password');
         
-            // Handle your login logic here
-        }
 }
