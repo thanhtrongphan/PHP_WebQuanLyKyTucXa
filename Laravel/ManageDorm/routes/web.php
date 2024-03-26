@@ -6,7 +6,7 @@ use App\Http\Controllers\LognInController;
 use App\Http\Controllers\LognOutController;
 use App\Http\Controllers\StudentController;
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login.form');
 });
 Route::get('/getdata', [DataController::class, 'GetData']);
 // group route login

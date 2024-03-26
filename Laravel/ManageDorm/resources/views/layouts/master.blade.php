@@ -13,7 +13,7 @@
     @if(Session::get('auth') == 'admin')
         @include('layouts.admin_submenu')
     @endif
-    @if(Session::get('auth') != null)
+    @if(Session::get('auth') != 'admin' && Session::get('auth') != null)
         @include('layouts.admin_submenu')
     @endif
     <!-- Main Content -->

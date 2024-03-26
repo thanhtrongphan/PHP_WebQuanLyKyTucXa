@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-@if(Session::get('auth') == 'admin')
-    <h2>Welcome Admin</h2>
-@endif
+    <?php
+        printf($data);
+    ?>
 @endsection

@@ -11,12 +11,11 @@ class LognInController extends Controller
     public function login_form()
     {
        if(Session::get('auth') == 'admin'){
-            return View('admin.showadmin');
+            return redirect()->route('students.index');
         }
         if(Session::get('auth') != null){
             return View('showstudent');
         }
-
         return view('login');
     }
 
@@ -32,7 +31,7 @@ class LognInController extends Controller
         if($username == 'admin' && $password == 'admin'){
             // set session admin
             Session::put('auth', 'admin');
-            return View('admin.showadmin');
+            return redirect()->route('login.form');
         }
         // get data from table account_list
         $data = DB::table('account_list')->get();

@@ -14,7 +14,7 @@
           <a class="nav-link" href="#">Quản lý ký túc xá</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quản lý phòng/a>
+          <a class="nav-link" href="#">Quản lý phòng</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Quản lý đơn đăng ký</a>
