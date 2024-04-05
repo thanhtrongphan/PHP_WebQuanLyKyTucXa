@@ -5,19 +5,19 @@
       <ul class="nav flex-column">
         <!-- Sidebar Menu Items -->
         <li class="nav-item">
-          <a class="nav-link active" href="#">Quản lý sinh viên</a>
+          <a class="nav-link active" href="{{ route('students.index') }}">Quản lý sinh viên</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quản lý tài khoản</a>
+          <a class="nav-link" href="{{ route('accounts.index') }}">Quản lý tài khoản</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quản lý ký túc xá</a>
+          <a class="nav-link" href="{{ route('dorms.index') }}">Quản lý ký túc xá</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quản lý phòng</a>
+          <a class="nav-link" href="{{ route('rooms.index') }}">Quản lý phòng</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quản lý đơn đăng ký</a>
+          <a class="nav-link" href="{{ route('registers.index') }}">Quản lý đơn đăng ký</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Quản lý công nợ sinh viên</a>
