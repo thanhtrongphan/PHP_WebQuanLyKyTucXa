@@ -13,11 +13,12 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        $data = DB::table('register_list')->join('room_list', 'register_list.room_list_id', '=', 'room_list.id')
-        ->join('account_list', 'register_list.account_list_id', '=', 'account_list.id')->where('register_list.is_registed', '=', '0')
-        ->select('account_list.username as account_name', 'room_list.name as room_name', 'register_list.id as id' 
-        , 'register_list.date', 'register_list.is_registed')->get();
-    
+        $data = DB::table('room_list')
+            ->join('register_list', 'room_list.id', '=', 'register_list.room_list_id')
+            ->join('dorm_list', 'dorm_list.id', '=', 'room_list.dorm_id')
+            ->select('room_list.id','dorm_list.name as dorm_name', 'room_list.name as room_name', DB::raw('count(register_list.id) as registered_slots'), 'room_list.slots')
+            ->groupBy('room_list.id','dorm_list.name', 'room_list.name', 'room_list.slots')
+            ->get();
         return view('admin.register.read_register', ['data' => $data]);
     }
 
@@ -42,7 +43,14 @@ class RegisterController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = DB::table('account_list')
+            ->join('register_list', 'account_list.id', '=', 'register_list.account_id')
+            ->join('room_list', 'room_list.id', '=', 'register_list.room_list_id')
+            ->join('dorm_list', 'dorm_list.id', '=', 'room_list.dorm_id')
+            ->select('account_list.id', 'account_list.username', 'account_list.email', 'account_list.phone', 'dorm_list.name as dorm_name', 'room_list.name as room_name')
+            ->where('room_list.id', '=', $id)
+            ->get();
+        
     }
 
     /**

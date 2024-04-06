@@ -20,7 +20,7 @@
           <a class="nav-link" href="{{ route('registers.index') }}">Quản lý đơn đăng ký</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quản lý công nợ sinh viên</a>
+          <a class="nav-link" href="{{ route('payments.index') }}">Quản lý công nợ sinh viên</a>
         </li>
         <li class="nav-item">
             <!-- Go to LogOut controller function LogOut -->
