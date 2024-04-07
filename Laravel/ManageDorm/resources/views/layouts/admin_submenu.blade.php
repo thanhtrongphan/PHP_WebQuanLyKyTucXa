@@ -17,7 +17,7 @@
           <a class="nav-link" href="{{ route('rooms.index') }}">Quản lý phòng</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('registers.index') }}">Quản lý đơn đăng ký</a>
+          <a class="nav-link" href="{{ route('registers.index') }}">Quản lý chi tiết phòng</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('payments.index') }}">Quản lý công nợ sinh viên</a>

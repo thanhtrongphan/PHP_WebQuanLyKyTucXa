@@ -44,13 +44,13 @@ class RegisterController extends Controller
     public function show(string $id)
     {
         $data = DB::table('account_list')
-            ->join('register_list', 'account_list.id', '=', 'register_list.account_id')
+            ->join('register_list', 'account_list.id', '=', 'register_list.account_list_id')
             ->join('room_list', 'room_list.id', '=', 'register_list.room_list_id')
             ->join('dorm_list', 'dorm_list.id', '=', 'room_list.dorm_id')
-            ->select('account_list.id', 'account_list.username', 'account_list.email', 'account_list.phone', 'dorm_list.name as dorm_name', 'room_list.name as room_name')
+            ->select('register_list.id', 'account_list.username', 'register_list.date')
             ->where('room_list.id', '=', $id)
             ->get();
-        
+        return view('admin.register.edit_register', ['data' => $data]);
     }
 
     /**
