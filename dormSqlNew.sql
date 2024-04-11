@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 05, 2024 at 01:40 PM
+-- Generation Time: Apr 08, 2024 at 05:45 AM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -81,7 +81,14 @@ CREATE TABLE IF NOT EXISTS `payment_list` (
   `is_payment` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `account_id` (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `payment_list`
+--
+
+INSERT INTO `payment_list` (`id`, `account_id`, `month_of`, `amount`, `is_payment`) VALUES
+(9, 9, 'Tháng 2', 123.00, 0);
 
 -- --------------------------------------------------------
 
@@ -95,11 +102,17 @@ CREATE TABLE IF NOT EXISTS `register_list` (
   `room_list_id` int NOT NULL,
   `account_list_id` int NOT NULL,
   `date` date NOT NULL,
-  `is_registed` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_registers_list_room_list1_idx` (`room_list_id`),
   KEY `fk_registers_list_account_list1_idx` (`account_list_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `register_list`
+--
+
+INSERT INTO `register_list` (`id`, `room_list_id`, `account_list_id`, `date`) VALUES
+(0, 8, 9, '2024-04-02');
 
 -- --------------------------------------------------------
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\DormController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return redirect()->route('login.form');
@@ -27,3 +28,6 @@ Route::resource('dorms', DormController::class);
 Route::resource('rooms', RoomController::class);
 Route::resource('registers', RegisterController::class);
 Route::resource('payments', PaymentController::class);
+Route::resource('users', UserController::class);
+Route::get('/change-password', [UserController::class, 'changePassword'])->name('users.changePassword');
+Route::post('/update-password/{id}', [UserController::class, 'updatePassword'])->name('users.updatePassword');

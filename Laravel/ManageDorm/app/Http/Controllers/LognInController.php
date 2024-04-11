@@ -14,7 +14,7 @@ class LognInController extends Controller
             return redirect()->route('students.index');
         }
         if(Session::get('auth') != null){
-            return View('showstudent');
+            return redirect()->route('users.index');
         }
         return view('login');
     }
@@ -40,7 +40,7 @@ class LognInController extends Controller
             if($item->username == $username && $item->password == $password){
                 // set session user
                 Session::put('auth', $username);
-                return View('showstudent', ['data' => $item]);
+                return redirect()->route('users.index');
             }
         }
         Session::flash('error', 'Username or password is wrong');

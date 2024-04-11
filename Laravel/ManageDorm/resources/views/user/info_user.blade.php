@@ -16,5 +16,5 @@
     <p>Email: {{ $data->email }}</p>
     <p>Address: {{ $data->address }}</p>
 </div>
-<a href="{{ route('LogOut') }}">Chỉnh sửa thông tin</a>
+<button><a href="{{ route('users.show', $data->id) }}">Chỉnh sửa thông tin</a></button>
 @endsection

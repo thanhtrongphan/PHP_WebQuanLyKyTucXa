@@ -22,7 +22,7 @@
     @include('layouts.admin_submenu')
     @endif
     @if(Session::get('auth') != 'admin' && Session::get('auth') != null)
-    @include('layouts.admin_submenu')
+    @include('layouts.user_submenu')
     @endif
     <!-- Main Content -->
     <div class="col-md-9">

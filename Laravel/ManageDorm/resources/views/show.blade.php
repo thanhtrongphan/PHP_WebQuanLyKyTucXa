@@ -6,6 +6,6 @@
 
 @section('content')
     <?php
-        printf($data);
+        print_r($data);
     ?>
 @endsection
