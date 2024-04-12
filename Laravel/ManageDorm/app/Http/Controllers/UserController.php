@@ -101,7 +101,40 @@ class UserController extends Controller
     }
     public function register_room(){
         $code = session('auth');
-        $data = DB::table('register_list')
-        ->join('account_list', 'register_list.code', '=', 'account_list.username')
+        $is_register = DB::table('register_list')
+        ->join('account_list', 'register_list.account_list_id', '=', 'account_list.id')
+        ->where('account_list.username', $code)
+        ->get();
+        if(count($is_register) > 0){
+            Session::flash('error', 'You have already registered');
+            return View('user.register_room_user');
+        }
+        $rooms = DB::table('room_list')
+        ->leftJoin('register_list', 'room_list.id', '=', 'register_list.room_list_id')
+        ->select('room_list.id','room_list.name', DB::raw('COUNT(register_list.id) as registered_slots'), 'room_list.slots as max_slots')
+        ->groupBy('room_list.id','room_list.name', 'room_list.slots')
+        ->get();
+        return View('user.register_room_user', ['rooms' => $rooms]);
+    }
+    public function registered(string $id_room){
+        // check id_room is full register
+        $room = DB::table('room_list')->where('id', $id_room)->first();
+        $registered = DB::table('register_list')->where('room_list_id', $id_room)->count();
+        if($room->slots == $registered){
+            Session::flash('is_registered', 'Room is full');
+            return redirect()->route('users.register_room');
+        }
+        $code = session('auth');
+        $data= DB::table('account_list')->where('username', $code)->select('id')->first();
+        $accountID = $data->id;
+        $date = date('Y-m-d');
+        DB::table('register_list')->insert(['account_list_id' => $accountID, 'room_list_id' => $id_room, 'date' => $date]);
+        return redirect()->route('users.register_room');
+    }
+    public function payment_show(){
+        $code = session('auth');
+        $account = DB::table('account_list')->where('username', $code)->first();
+        $data = DB::table('payment_list')->where('account_id', $account->id)->get();
+        return view('user.payment_user', ['data' => $data]);
     }
 }

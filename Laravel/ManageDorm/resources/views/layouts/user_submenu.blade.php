@@ -11,10 +11,10 @@
           <a class="nav-link active" href="{{ route('users.changePassword') }}">Đổi mật khẩu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Đăng ký phòng</a>
+          <a class="nav-link active" href="{{ route('users.register_room') }}">Đăng ký phòng</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Kiểm tra công nợ</a>
+          <a class="nav-link active" href="{{ route('users.payment_show') }}">Kiểm tra công nợ</a>
         <li class="nav-item">
             <!-- Go to LogOut controller function LogOut -->
             <a class="nav-link" href="{{ route('LogOut') }}">Log Out</a>

@@ -31,3 +31,6 @@ Route::resource('payments', PaymentController::class);
 Route::resource('users', UserController::class);
 Route::get('/change-password', [UserController::class, 'changePassword'])->name('users.changePassword');
 Route::post('/update-password/{id}', [UserController::class, 'updatePassword'])->name('users.updatePassword');
+Route::get('/register', [UserController::class, 'register_room'])->name('users.register_room');
+Route::get('/registered/{id_room}', [UserController::class, 'registered'])->name('users.registered');
+Route::get('/payment', [UserController::class, 'payment_show'])->name('users.payment_show');
