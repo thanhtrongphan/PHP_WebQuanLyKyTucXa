@@ -26,16 +26,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        //get data
+        $code = $request->code;
+        // if code 
+        $name = $request->name;
+        $department = $request->department;
+        $course = $request->course;
+        $gender = $request->gender;
+        $contact = $request->contact;
+        $email = $request->email;
+        $address = $request->address;
+
         // insert data
         DB::table('student_list')->insert([
-            'code' => $request->code,
-            'name' => $request->name,
-            'department' => $request->department,
-            'course' => $request->course,
-            'gender' => $request->gender,
-            'contact' => $request->contact,
-            'email' => $request->email,
-            'address' => $request->address
+            'code' => $code,
+            'name' => $name,
+            'department' => $department,
+            'course' => $course,
+            'gender' => $gender,
+            'contact' => $contact,
+            'email' => $email,
+            'address' => $address
         ]);
         return redirect()->route('students.index');
         

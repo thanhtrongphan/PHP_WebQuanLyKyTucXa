@@ -40,6 +40,10 @@
 <!-- <p>xác nhận đơn chuyển phòng</p> -->
 <!-- <p>lập phiếu phạt nội quy</p> -->
 <p>xem và xác nhận  thanh toán công nợ sinh viên</p>
-
+<h2>Cách cài đặt project</h2>
+<p>1. cài đặt composer cho laravel (https://getcomposer.org/)</p>
+<p>2. cài đặt file sql dormtest.sql</p>
+<p>3. setting file .env phần DB_DATABASE, DB_USERNAME, DB_PASSWORD đúng database</p>
+<p>4. mở thư mục project, chạy lệnh php artisan serve trong terminal</p>
 
 </table>

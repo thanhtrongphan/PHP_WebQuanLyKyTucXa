@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 11, 2024 at 03:39 PM
+-- Generation Time: Apr 13, 2024 at 02:03 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `dormtest`
 --
+DROP DATABASE IF EXISTS `dormtest`;
+CREATE DATABASE IF NOT EXISTS `dormtest` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci;
+USE `dormtest`;
 
 -- --------------------------------------------------------
 
@@ -56,15 +59,15 @@ CREATE TABLE IF NOT EXISTS `dorm_list` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `dorm_list`
 --
 
 INSERT INTO `dorm_list` (`id`, `name`) VALUES
-(6, 'Ký túc nam 1'),
-(7, 'Ký túc nữ 1');
+(9, 'Ký túc xá nam'),
+(10, 'Ký túc xá nữ');
 
 -- --------------------------------------------------------
 
@@ -105,14 +108,14 @@ CREATE TABLE IF NOT EXISTS `register_list` (
   PRIMARY KEY (`id`),
   KEY `fk_registers_list_room_list1_idx` (`room_list_id`),
   KEY `fk_registers_list_account_list1_idx` (`account_list_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Dumping data for table `register_list`
 --
 
 INSERT INTO `register_list` (`id`, `room_list_id`, `account_list_id`, `date`) VALUES
-(1, 8, 9, '2024-04-11');
+(4, 14, 9, '2024-04-02');
 
 -- --------------------------------------------------------
 
@@ -129,17 +132,15 @@ CREATE TABLE IF NOT EXISTS `room_list` (
   `price` float(12,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`),
   KEY `dorm_id` (`dorm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `room_list`
 --
 
 INSERT INTO `room_list` (`id`, `dorm_id`, `name`, `slots`, `price`) VALUES
-(8, 6, 'A101', 4, 300000.00),
-(9, 6, 'B102', 2, 1200000.00),
-(10, 7, 'D102', 4, 600000.00),
-(11, 7, 'C101', 2, 1200000.00);
+(14, 9, 'A101', 4, 20000.00),
+(15, 10, 'A202', 2, 444444.00);
 
 -- --------------------------------------------------------
 
@@ -166,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `student_list` (
 --
 
 INSERT INTO `student_list` (`id`, `code`, `name`, `department`, `course`, `gender`, `contact`, `email`, `address`) VALUES
-(3, '2001180172', 'Phan Thanh Trong', 'Cong Nghe Thong Tin', 'Cong Nghe Phan Mem', 'Nam', '1', '1@gmail.com', '1'),
+(3, '2001180172', 'Phan Thanh Trong', 'Cong Nghe Thong Tin', 'Cong Nghe Phan Mem', 'Nam', '1', '1@gmail.com', '2'),
 (5, '123', '123', '123', '123', 'Nam', '123', '123@gmail.com', '112');
 
 --

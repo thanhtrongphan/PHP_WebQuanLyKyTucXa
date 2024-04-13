@@ -72,6 +72,13 @@ class DormController extends Controller
      */
     public function destroy(string $id)
     {
+        $rooms_id = DB::table('room_list')->where('dorm_id', $id)->select('id')->get();
+        foreach ($rooms_id as $room_id) {
+            $registers_id = DB::table('register_list')->where('room_list_id', $room_id->id)->select('id')->get();
+            foreach ($registers_id as $register_id) {
+                DB::table('register_list')->where('id', $register_id->id)->delete();
+            }
+        }
         DB::table('dorm_list')->where('id', $id)->delete();
         return redirect()->route('dorms.index');
     }

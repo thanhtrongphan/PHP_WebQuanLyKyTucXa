@@ -5,6 +5,7 @@ Show Data
 @endsection
 
 @section('content')
+
 <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

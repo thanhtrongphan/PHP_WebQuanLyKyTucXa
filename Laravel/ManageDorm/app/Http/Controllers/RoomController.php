@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -37,6 +38,7 @@ class RoomController extends Controller
         $name = $request->input('name');
         $slots = $request->input('slots');
         $price = $request->input('price');
+        
 
         DB::table('room_list')->insert([
             'dorm_id' => $id_dorm,
@@ -95,6 +97,10 @@ class RoomController extends Controller
      */
     public function destroy(string $id)
     {
+        $registes_id = DB::table('register_list')->where('room_list_id', $id)->select('id')->get();
+        foreach ($registes_id as $register_id) {
+            DB::table('register_list')->where('id', $register_id->id)->delete();
+        }
         DB::table('room_list')->where('id', $id)->delete();
         return redirect()->route('rooms.index');
     }

@@ -14,7 +14,7 @@ class RegisterController extends Controller
     public function index()
     {
         $data = DB::table('room_list')
-            ->join('register_list', 'room_list.id', '=', 'register_list.room_list_id')
+            ->leftJoin('register_list', 'room_list.id', '=', 'register_list.room_list_id')
             ->join('dorm_list', 'dorm_list.id', '=', 'room_list.dorm_id')
             ->select('room_list.id','dorm_list.name as dorm_name', 'room_list.name as room_name', DB::raw('count(register_list.id) as registered_slots'), 'room_list.slots')
             ->groupBy('room_list.id','dorm_list.name', 'room_list.name', 'room_list.slots')
@@ -74,6 +74,8 @@ class RegisterController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete register
+        DB::table('register_list')->where('id', '=', $id)->delete();
+        return redirect()->route('register.index');
     }
 }
