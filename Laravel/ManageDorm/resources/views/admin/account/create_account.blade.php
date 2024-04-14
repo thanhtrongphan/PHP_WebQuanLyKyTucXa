@@ -21,10 +21,10 @@ Show Data
         </select>
     </div>
     
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" class="form-control" id="username" name="username">
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="password">Password:</label>
         <input type="text" class="form-control" id="password" name="password">

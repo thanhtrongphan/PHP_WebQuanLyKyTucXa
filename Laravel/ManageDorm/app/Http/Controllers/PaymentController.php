@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
+use App\Http\Traits\ClassTrait;
 use function Laravel\Prompts\select;
 
 class PaymentController extends Controller
 {
+    use ClassTrait;
     /**
      * Display a listing of the resource.
      */
@@ -36,9 +38,18 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('payments.create');
+        }
         $code = $request->input('code');
         $month = $request->input('month');
         $amount = $request->input('amount');
+        // check amount > 0
+        if($amount <= 0){
+            Session::flash('error', 'Amount must be greater than 0');
+            return redirect()->route('payments.create');
+        }
         $account_id = DB::table('account_list')->where('username', $code)->first()->id;
         DB::table('payment_list')->insert([
             'account_id' => $account_id,
@@ -80,9 +91,18 @@ class PaymentController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('payments.show', ['payment' => $id]);
+        }
         $code = $request->input('username');
         $month = $request->input('month');
         $amount = $request->input('amount');
+        // check amount > 0
+        if($amount <= 0){
+            Session::flash('error', 'Amount must be greater than 0');
+            return redirect()->route('payments.show', ['payment' => $id]);
+        }
         $account_id = DB::table('account_list')->where('username', $code)->first()->id;
         DB::table('payment_list')->where('id', $id)->update([
             'account_id' => $account_id,

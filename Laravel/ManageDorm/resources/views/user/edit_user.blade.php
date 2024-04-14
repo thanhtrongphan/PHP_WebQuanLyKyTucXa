@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+@if(session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 <form action="{{ route('users.update', $user->id) }}" method="POST">
     @csrf
     @method('PUT')

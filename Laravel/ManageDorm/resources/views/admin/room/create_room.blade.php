@@ -6,6 +6,9 @@ Show Data
 
 @section('content')
 
+@if(session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

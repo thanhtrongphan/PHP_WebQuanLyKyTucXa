@@ -6,9 +6,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-
+use App\Http\Traits\ClassTrait;
 class UserController extends Controller
 {
+    use ClassTrait;
     /**
      * Display a listing of the resource.
      */
@@ -58,6 +59,10 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('users.show', ['user' => $id]);
+        }   
         $contact = $request->contact;
         $email = $request->email;
         $address = $request->address;
@@ -82,6 +87,10 @@ class UserController extends Controller
     {
         $code = session('auth');
         $pass = DB::table('account_list')->where('username', $code)->select('password')->first();
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('users.changePassword');
+        }
         $input_pass = $request->password;
         if($pass->password != $input_pass)
         {

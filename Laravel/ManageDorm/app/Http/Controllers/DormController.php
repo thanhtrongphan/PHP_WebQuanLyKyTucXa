@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Traits;
+use App\Http\Traits\ClassTrait;
+use Illuminate\Support\Facades\Session;
 
 class DormController extends Controller
 {
+    use ClassTrait;
     /**
      * Display a listing of the resource.
      */
@@ -30,7 +34,14 @@ class DormController extends Controller
      */
     public function store(Request $request)
     {
+        // check $request
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('dorms.create');
+        }
         $name = $request->name;
+        // capitalization first letter
+        $name = ucwords($name);
         DB::table('dorm_list')->insert([
             'name' => $name
         ]);
@@ -60,7 +71,13 @@ class DormController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('dorms.show', $id);
+        }
         $name = $request->name;
+        // capitalization first letter
+        $name = ucwords($name);
         DB::table('dorm_list')->where('id', $id)->update([
             'name' => $name
         ]);

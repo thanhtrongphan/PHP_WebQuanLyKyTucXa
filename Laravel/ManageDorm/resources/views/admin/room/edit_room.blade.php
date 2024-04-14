@@ -5,6 +5,9 @@ Show Data
 @endsection
 
 @section('content')
+@if(session('error'))
+<div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 <form action="{{ route('rooms.update', $data['room_list']->id) }}" method="POST">
     @csrf
     @method('PUT')

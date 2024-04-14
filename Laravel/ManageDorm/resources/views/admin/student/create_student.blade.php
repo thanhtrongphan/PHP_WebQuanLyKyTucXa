@@ -5,11 +5,14 @@ Show Data
 @endsection
 
 @section('content')
+@if(session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 <form action="{{ route('students.store') }}" method="POST">
     @csrf
     <div class="form-group">
         <label for="code">Code:</label>
-        <input type="text" class="form-control" id="code" name="code" require>
+        <input type="text" class="form-control" id="code" name="code" require >
     </div>
     <div class="form-group">
         <label for="name">Name:</label>

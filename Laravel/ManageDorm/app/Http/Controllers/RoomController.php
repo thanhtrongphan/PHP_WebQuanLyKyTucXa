@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Traits\ClassTrait;
 class RoomController extends Controller
 {
+    use ClassTrait;
     /**
      * Display a listing of the resource.
      */
@@ -34,8 +35,14 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('rooms.create');
+        }
         $id_dorm = $request->input('id_dorm');
         $name = $request->input('name');
+        // capitalization first letter
+        $name = ucwords($name);
         $slots = $request->input('slots');
         $price = $request->input('price');
         
@@ -77,8 +84,14 @@ class RoomController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(!$this->checkRequestData($request)){
+            Session::flash('error', 'Please fill all the fields');
+            return redirect()->route('rooms.show', ['room' => $id]);
+        }
         $id_dorm = $request->input('id_dorm');
         $name = $request->input('name');
+        // capitalization first letter
+        $name = ucwords($name);
         $slots = $request->input('slots');
         $price = $request->input('price');
 
