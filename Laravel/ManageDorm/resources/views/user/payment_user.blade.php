@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+    Thanh toán
 @endsection
 
 @section('content')
-<table class="table table-striped">
+<table id="example" class="display" style="width:100%">
         <thead>
             <tr>
                 <th class="col-md-auto">Tháng</th>
@@ -33,5 +33,9 @@
             @endforeach
         </tbody>
     </table>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 @endsection

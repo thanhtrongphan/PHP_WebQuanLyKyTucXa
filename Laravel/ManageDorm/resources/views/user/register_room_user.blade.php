@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+    Đăng ký phòng
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
         {{ Session::get('is_registered') }}
     </div>
     @endif
-    <table class="table table-striped">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>Room Name</th>
@@ -33,5 +33,10 @@
             @endforeach
         </tbody>
     </table>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 @endif
 @endsection

@@ -1,15 +1,15 @@
 @extends('layouts.master')
 
 @section('title')
-Show Data
+Chi tiết phòng
 @endsection
 
 @section('content')
-<table class="table table-striped">
+<table id="example" class="display" style="width:100%">
     <thead>
         <tr>
-            <th>Code</th>
-            <th>Date</th>
+            <th>Mã sinh viên</th>
+            <th>Ngày đăng ký</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -18,7 +18,7 @@ Show Data
         <tr>
             <td>{{ $register->username }}</td>
             <td>{{ $register->date }}</td>
-            
+
             <td>
                 <form action="{{ route('registers.destroy', $register->id) }}" method="POST">
                     @csrf
@@ -30,6 +30,11 @@ Show Data
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('registers.index') }}">Back</a>
-    
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+});
+</script>
+<a href="{{ route('registers.index') }}">Trở lại</a>
+
 @endsection

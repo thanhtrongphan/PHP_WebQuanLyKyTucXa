@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+    Chỉnh sửa
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
     @csrf
     @method('PUT')
     <div class="form-group">
-        <label for="contact">Contact</label>
+        <label for="contact">Số điện thoại</label>
         <input type="contact" name="contact" id="contact" value="{{ $user->contact }}" class="form-control">
     </div>
     <div class="form-group">
@@ -21,10 +21,10 @@
     </div>
 
     <div class="form-group">
-        <label for="address">Address</label>
+        <label for="address">Địa chỉ</label>
         <input type="address" name="address" id="address" value="{{ $user->address }}" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
 </form>
 @endsection

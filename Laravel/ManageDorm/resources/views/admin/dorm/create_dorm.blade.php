@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Show Data
+Ký túc xá
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Show Data
 <form action="{{ route('dorms.store') }}" method="POST">
     @csrf
     <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">Tên:</label>
         <input type="text" class="form-control" id="name" name="name" >
     </div>
     
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a href="{{ route('dorms.index') }}" class="btn btn-danger">Cancel</a>
+    <button type="submit" class="btn btn-primary">Tạo</button>
+    <a href="{{ route('dorms.index') }}" class="btn btn-danger">Trở lại</a>
 </form>
 
     

@@ -1,19 +1,19 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+Công nợ
 @endsection
 
 @section('content')
 <div class="my-3 p-3 bg-body rounded shadow-sm">
     <div class="pb-3">
-        <a href="{{ route('payments.create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ route('payments.create') }}" class="btn btn-primary">Tạo</a>
     </div>
 
-    <table class="table table-striped">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-md-auto">Code</th>
+                <th class="col-md-auto">Mã sinh viên</th>
                 <th class="col-md-auto">Tháng</th>
                 <th class="col-md-auto">Số tiền</th>
                 <th class="col-md-auto">Action</th>
@@ -26,11 +26,11 @@
                 <td>{{ $item->month_of }}</td>
                 <td>{{ $item->amount }}</td>
                 <td>
-                    <a href="{{ route('payments.show', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('payments.show', $item->id) }}" class="btn btn-warning btn-sm">Chỉnh sửa</a>
                     <form action="{{ route('payments.destroy', $item->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Xoá</button>
                     </form>
                 </td>
                 
@@ -38,6 +38,10 @@
             @endforeach
         </tbody>
     </table>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 </div>
 @endsection

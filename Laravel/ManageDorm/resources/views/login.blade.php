@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-    Đăng nhập
+Đăng nhập
 @endsection
 
 @section('content')
 
 @if(session('error'))
-    <div class="alert alert-danger">{{ session('error') }}</div>
+<div class="alert alert-danger">{{ session('error') }}</div>
 @endif
 <form action="{{ route('login') }}" method="post">
     @csrf

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Show Data
+Công nợ
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Show Data
     @csrf
     @method('PUT')
     <div class="form-group">
-        <label for="username">Code:</label>
+        <label for="username">Mã sinh viên:</label>
         <select class="form-control js-example-basic-single" id="username" name="username">
             @foreach($data['account_list'] as $account)
             <option value="{{ $account->username }}">{{ $account->username }}</option>
@@ -40,8 +40,8 @@ Show Data
         <label for="amount">Số tiền:</label>
         <input type="number" class="form-control" id="amount" name="amount" value="{{ $data['payment_list']->amount }}">
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
-    <a href="{{ route('payments.index') }}" class="btn btn-danger">Cancel</a>
+    <button type="submit" class="btn btn-primary">Tạo</button>
+    <a href="{{ route('payments.index') }}" class="btn btn-danger">Trở lại</a>
 </form>
 
 <script>

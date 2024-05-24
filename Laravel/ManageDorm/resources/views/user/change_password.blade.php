@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+    Đổi mật khẩu
 @endsection
 
 @section('content')
@@ -11,14 +11,14 @@
 <form method="POST" action="{{ route('users.updatePassword', $data->id) }}">
     @csrf
     <div>
-        <label for="password">Old Password</label>
+        <label for="password">Mật khẩu cũ: </label>
         <input id="password" type="password" name="password" required>
         @error('password')
             <span>{{ $message }}</span>
         @enderror
     </div>
     <div>
-        <label for="new_pass">New Password</label>
+        <label for="new_pass">Mật khẩu mới: </label>
         <input id="new_pass" type="password" name="new_pass" required>
         @error('password')
             <span>{{ $message }}</span>
@@ -26,12 +26,12 @@
     </div>
 
     <div>
-        <label for="new_pass_confirm">Confirm New Password</label>
+        <label for="new_pass_confirm">Xác nhận mật khẩu mới: </label>
         <input id="new_pass_confirm" type="password" name="new_pass_confirm" required>
     </div>
 
     <div>
-        <button type="submit">Change Password</button>
+        <button type="submit">Cập nhật mật khẩu</button>
     </div>
 </form>
 @endsection

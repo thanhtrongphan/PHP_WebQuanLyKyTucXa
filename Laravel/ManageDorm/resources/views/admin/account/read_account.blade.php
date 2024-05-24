@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+Tài khoản
 @endsection
 
 @section('content')
@@ -11,13 +11,13 @@
 ?>
 <div class="my-3 p-3 bg-body rounded shadow-sm">
     <div class="pb-3">
-        <a href="{{ route('accounts.create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ route('accounts.create') }}" class="btn btn-primary">Thêm</a>
     </div>
 
-    <table class="table table-striped">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-md-auto">Code</th>
+                <th class="col-md-auto">Mã sinh viên</th>
                 <th class="col-md-auto">Username</th>
                 <th class="col-md-auto">Password</th>
                 <th class="col-md-auto">Avatar</th>
@@ -45,6 +45,10 @@
             @endforeach
         </tbody>
     </table>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 </div>
 @endsection

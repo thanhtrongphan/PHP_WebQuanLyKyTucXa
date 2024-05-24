@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+Chi tiết phòng
 @endsection
 
 @section('content')
@@ -11,11 +11,11 @@
 ?>
 <div class="my-3 p-3 bg-body rounded shadow-sm">
 
-    <table class="table table-striped">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-md-auto">Name Dorm</th>
-                <th class="col-md-auto">Name Room</th>
+                <th class="col-md-auto">Tên ký túc xá</th>
+                <th class="col-md-auto">Tên phòng</th>
                 <th class="col-md-auto">Số lượng đã đăng ký</th>
                 <th class="col-md-auto">Action</th>
             </tr>
@@ -34,6 +34,10 @@
             @endforeach
         </tbody>
     </table>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 </div>
 @endsection

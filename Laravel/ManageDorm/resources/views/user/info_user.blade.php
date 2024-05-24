@@ -1,20 +1,20 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+    Thong tin sinh vien
 @endsection
 
 @section('content')
 <div>
     <h1>Thông tin sinh viên</h1>
-    <p>Code: {{ $data->code }}</p>
-    <p>Name: {{ $data->name }}</p>
-    <p>Department: {{ $data->department }}</p>
-    <p>Course: {{ $data->course }}</p>
-    <p>Gender: {{ $data->gender }}</p>
-    <p>Contact: {{ $data->contact }}</p>
+    <p>Mã sinh viên: {{ $data->code }}</p>
+    <p>Tên sinh viên: {{ $data->name }}</p>
+    <p>Khoa: {{ $data->department }}</p>
+    <p>Nghành: {{ $data->course }}</p>
+    <p>Giới tính: {{ $data->gender }}</p>
+    <p>SDT: {{ $data->contact }}</p>
     <p>Email: {{ $data->email }}</p>
-    <p>Address: {{ $data->address }}</p>
+    <p>Địa chỉ: {{ $data->address }}</p>
 </div>
 <button><a href="{{ route('users.show', $data->id) }}">Chỉnh sửa thông tin</a></button>
 @endsection

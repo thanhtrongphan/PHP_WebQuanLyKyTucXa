@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Show Data
+Công nợ
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@ Show Data
 <form action="{{ route('payments.store') }}" method="POST">
     @csrf
     <div class="form-group">
-        <label for="code">Code:</label>
+        <label for="code">Mã sinh viên:</label>
         <select class="form-control js-example-basic-single" id="code" name="code">
             @foreach($data as $student)
             <option value="{{ $student->username }}">{{ $student->username }}</option>
@@ -39,8 +39,8 @@ Show Data
         <label for="amount">Số tiền:</label>
         <input type="number" class="form-control" id="amount" name="amount">
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a href="{{ route('payments.index') }}" class="btn btn-danger">Cancel</a>
+    <button type="submit" class="btn btn-primary">Tạo</button>
+    <a href="{{ route('payments.index') }}" class="btn btn-danger">Trở lại</a>
 </form>
 
 <script>

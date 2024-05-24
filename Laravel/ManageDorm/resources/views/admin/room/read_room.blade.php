@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+Phòng
 @endsection
 
 @section('content')
@@ -11,16 +11,16 @@
 ?>
 <div class="my-3 p-3 bg-body rounded shadow-sm">
     <div class="pb-3">
-        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Thêm</a>
     </div>
 
-    <table class="table table-striped">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-md-auto">Dorm name</th>
-                <th class="col-md-auto">Name room</th>
-                <th class="col-md-auto">Slots</th>
-                <th class="col-md-auto">Price</th>
+                <th class="col-md-auto">Ký túc xá</th>
+                <th class="col-md-auto">Tên phòng</th>
+                <th class="col-md-auto">Số lượng sinh viên tối đa</th>
+                <th class="col-md-auto">Giá</th>
                 <th class="col-md-auto">Action</th>
             </tr>
         </thead>
@@ -45,6 +45,10 @@
             @endforeach
         </tbody>
     </table>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 </div>
 @endsection

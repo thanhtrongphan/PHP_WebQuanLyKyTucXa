@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show Data
+    Sinh viên
 @endsection
 
 @section('content')
@@ -11,18 +11,18 @@
 ?>
 <div class="my-3 p-3 bg-body rounded shadow-sm">
     <div class="pb-3">
-        <a href="{{ route('students.create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ route('students.create') }}" class="btn btn-primary">Thêm sinh viên</a>
     </div>
 
-    <table class="table table-striped">
+    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-md-auto">Code</th>
-                <th class="col-md-auto">Name</th>
-                <th class="col-md-auto">Department</th>
-                <th class="col-md-auto">Course</th>
-                <th class="col-md-auto">Gender</th>
-                <th class="col-md-auto">Action</th>
+                <th class="col-md-auto">Mã sinh viên</th>
+                <th class="col-md-auto">Họ tên</th>
+                <th class="col-md-auto">Khoa</th>
+                <th class="col-md-auto">Nghành</th>
+                <th class="col-md-auto">Giới tính</th>
+                <th class="col-md-auto">Hành động</th>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +47,10 @@
             @endforeach
         </tbody>
     </table>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 </div>
 @endsection

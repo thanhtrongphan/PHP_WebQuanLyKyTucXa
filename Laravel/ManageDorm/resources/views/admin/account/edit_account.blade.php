@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Show Data
+Tài khoản
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@ Show Data
     @csrf
     @method('PUT')
     <div class="form-group">
-        <label for="code">Code:</label>
+        <label for="code">Username:</label>
         <select class="form-control js-example-basic-single" id="code" name="code">
             @foreach($data['student_list'] as $student)
             <option value="{{ $student->code }}">{{ $student->code }}</option>
@@ -27,12 +27,12 @@ Show Data
         <input type="text" class="form-control" id="password" name="password" value="{{ $data['accountData']->password }}">
     </div>
     <div class="form-group">
-        <label for="avatar">Avatar:</label>
+        <label for="avatar">Ảnh đại diện:</label>
         <input type="file" class="form-control" id="avatar" name="avatar" value="{{ $data['accountData']->avatar }}">
     </div>
     
-    <button type="submit" class="btn btn-primary">Update</button>
-    <a href="{{ route('accounts.index') }}" class="btn btn-danger">Cancel</a>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+    <a href="{{ route('accounts.index') }}" class="btn btn-danger">Trở lại</a>
 </form>
 
 <script>
