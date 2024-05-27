@@ -156,7 +156,6 @@ INSERT INTO `register_list` (`id`, `room_list_id`, `account_list_id`, `date`) VA
 (16, 12, 16, '2024-04-02'),
 (17, 12, 17, '2024-04-02');
 
-----------------------------------------------------------
 
 --
 -- Table structure for table `room_list`
